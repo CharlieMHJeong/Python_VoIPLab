@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+#import subprocess => run an external program(Bash command in Linux, ex. sipp command)
+#import shlex => simple syntax resembling of Unix Shell
+
 import time
 import json
 import os
@@ -52,6 +55,7 @@ for j in range(4):
         #sipp_command = ("sipp {} -i {} -sf {} -t un -r 1 -m 1 -s {} -d {} -l 2000 2>&1 | grep Contact:".format(sig_address, carrier_ip, uac_loc, BParty, call_duration ))
         #sipp_command = ['sipp', sig_address, '-sf', uac_loc,'-i',carrier_ip,'-t','un', '-r','1', '-m','1','-s', BParty, '-d', str(call_duration), '-l','2', '2>&1','| grep Contact:']
         # sipp_command = ['sipp', sig_address, '-sf', uac_loc,'-i',carrier_ip,'-t','un', '-r','1', '-m','1','-s', BParty, '-d', str(call_duration), '-l','2', '2','>','&','1','|','grep','Contact:']
+        # shlex.split deprecated since 3.9
         # sipp_command = shlex.split("sipp 10.0.2.15 -sf  uac_new_temp.xml -i 192.168.33.11 -t un -r 1 -m 1 -d 3000 -l 2 2>&1 | grep Contact:")
         sipp_command = ['sipp', sig_address, '-sf', uac_loc, '-i', carrier_ip, '-t', 'un', '-r', '1', '-m', '1', '-d', '3000', '-l', '2', '2>&1', '|', 'grep', 'Contact:']
 
