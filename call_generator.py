@@ -6,13 +6,16 @@ import os
 import subprocess
 import shlex
 
+#read uac_new_num.xml and replace 'new_num' with new_num and generate uac_new_temp.xml file
 def set_new_call(new_num):
     with open("uac_new_num.xml",'rt') as fin:
         with open("uac_new_temp.xml", 'wt') as fout:
             for line in fin:
                 fout.write(line.replace("new_num", new_num))
 
+                
 #uac_loc = r'/vagrant/sipp/call_generator/uac_new_temp.xml'
+#get uac_new_temp.xml file
 uac_loc = 'uac_new_temp.xml'
 sig_address = "10.0.2.15:5060"
 #sig_address = "192.168.33.10:5060"
